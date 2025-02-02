@@ -36,7 +36,7 @@ impl ApiClient {
             query_param.insert("q", param.query.to_owned());
 
             if let Some(language_code) = param.language_code {
-                query_param.insert("p", language_code.to_string());
+                query_param.insert("lan", language_code.to_string());
             }
 
             if let Some(page) = param.page {
