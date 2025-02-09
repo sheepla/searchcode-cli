@@ -43,6 +43,9 @@ async fn main() -> eyre::Result<()> {
 
     let client = api::ApiClient(reqwest::Client::new());
     let search_result = client.search(&param).await?;
+    if search_result.results.len() == 0 {
+        eyre::bail!("no results found")
+    }
 
     renderer::render(&search_result)?;
 
